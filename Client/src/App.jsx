@@ -30,6 +30,7 @@ function App() {
 
    async function onSearch(id) {
       try {
+         console.log("entra")
          const characterId = characters.filter(
             char => char.id === Number(id)
          )
