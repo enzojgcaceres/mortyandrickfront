@@ -61,7 +61,9 @@ function App() {
 
    async function login(userData) {
       try {
-         const { email, password } = userData;
+         const { email } = userData;
+         // comentar la verificacion de contraseña
+         // const { email, password } = userData;
          // const URL = 'http://localhost:3001/rickandmorty/login/';
          const { data } = await axios(import.meta.env.VITE_API_LOGIN + `?email=${email}&password=${password}`);
          //* data = { access: true || false }
@@ -82,8 +84,8 @@ function App() {
 
    useEffect(() => {
       //* Logueo automático
-     !access && navigate('/home');
-     !access && navigate('/');
+      !access && navigate('/home');
+   //   !access && navigate('/');
    }, [access]);
 
    return (
