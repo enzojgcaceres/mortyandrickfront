@@ -1,8 +1,11 @@
 import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./action-types";
 import axios from "axios"
+import dotenv from "dotenv"
+
+dotenv.config();
 
 export const addFav = (character) => {
-  const endpoint = 'http://localhost:3001/rickandmorty/fav';
+  const endpoint = process.env.REACT_APP_API_FAV;
   return async (dispatch) => {
     try {
       const { data } = await axios.post(endpoint, character);
@@ -23,7 +26,7 @@ export const addFav = (character) => {
 };
 
 export const removeFav = (id) => {
-  const endpoint = 'http://localhost:3001/rickandmorty/fav/' + id;
+  const endpoint = process.env.REACT_APP_API_FAV + id;
   return (dispatch) => {
      axios.delete(endpoint)
       .then(({ data }) => {

@@ -11,6 +11,11 @@ import Favorites from './components/favorites/Favorites.jsx';
 import Form from './components/form/Form.jsx';
 import Nav from './components/nav/Nav.jsx';
 import NotFound from './components/notfound/NotFound.jsx';
+import dotenv from 'dotenv';
+
+
+dotenv.config();
+
 
 // const URL = "https://rym2.up.railway.app/api/character";
 // const API_KEY = "henrystaff";
@@ -31,7 +36,7 @@ function App() {
          if(characterId.length) {
             return alert(`${characterId[0].name} ya existe!`)}
 
-         const { data } = await axios.get(`http://localhost:3001/rickandmorty/character/${id}`)
+         const { data } = await axios.get(process.env.REACT_APP_API_CHAR + id)
          if (data.name) {
             // console.log(data)
             setCharacters([...characters, data]);
@@ -57,8 +62,8 @@ function App() {
    async function login(userData) {
       try {
          const { email, password } = userData;
-         const URL = 'http://localhost:3001/rickandmorty/login/';
-         const { data } = await axios(URL + `?email=${email}&password=${password}`);
+         // const URL = 'http://localhost:3001/rickandmorty/login/';
+         const { data } = await axios(process.env.REACT_APP_API_LOGIN + `?email=${email}&password=${password}`);
          //* data = { access: true || false }
          if(data.access) {
             setAccess(data.access);
