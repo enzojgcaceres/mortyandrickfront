@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import styles from "../detail/Detail.module.css"
-import dotenv from "dotenv";
 
-dotenv.config();
+
+// dotenv.config();
 
 // const URL = "https://rym2.up.railway.app/api/character";
 // const API_KEY = "henrystaff";
@@ -17,7 +17,7 @@ export default function Detail(props) {
    useEffect(() => {
       // axios(`${URL}/${id}?key=${API_KEY}`)
       // axios(`http://localhost:3001/rickandmorty/character/${id}`)
-      axios(process.env.REACT_APP_API_CHAR + id)
+      axios(import.meta.env.REACT_APP_API_CHAR + id)
          //* { tiempo:x, status:x, data: { Rick } }
          .then(
             ({ data }) => {

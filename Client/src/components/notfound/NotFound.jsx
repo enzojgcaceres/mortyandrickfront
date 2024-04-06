@@ -1,4 +1,4 @@
-const error404 = "https://retouchcenter.org/wp-content/uploads/2019/04/error-4044.jpg";
+const error404 = "C:\Users\Usuario\Desktop\IIRickMortyfront\FrontEnd\Client\public\images\RickWalter_and_MortyPinkman.jpg";
 
 export default function NotFound(props) {
 
