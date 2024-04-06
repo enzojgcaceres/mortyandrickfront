@@ -1,0 +1,8 @@
+.detailContainer {
+    background-color:"darkslategray";
+    padding: 20px; 
+    border-radius: 20px;
+    &:hover {
+        box-shadow: 0 10px 10px white;
+      }
+}
